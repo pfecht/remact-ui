@@ -4,9 +4,7 @@ import { Http, Response, Headers } from '@angular/http';
 
 @Injectable()
 export class RestService {
-  constructor(private http:Http) {
-    Headers
-  }
+  constructor(private http:Http) {}
 
 
   public getItem(itemName:string) {
@@ -14,9 +12,14 @@ export class RestService {
       .get(environment.restBaseUrl + "/items/" + itemName)
       .map((res:Response) => res.json());
   }
-
-  public postCommandToItem(itemName: string, command:string) {
+  public getItemState(itemName:string) {
     return this.http
-      .post(environment.restBaseUrl + "/items/" + itemName, command);
+      .get(environment.restBaseUrl + "/items/" + itemName)
+      .map((res:Response) => res.json().state);
+  }
+
+  public postCommandToItem(itemName: string, command:any) {
+    return this.http
+      .post(environment.restBaseUrl + "/items/" + itemName, command)
   }
 }
