@@ -1,3 +1,19 @@
-<md-slide-toggle [(ngModel)]="userInput.isOutletOn" (change)="toggleOutlet()">
-  Default Slide Toggle
-</md-slide-toggle>
+<md-grid-list cols="4" rowHeight="300px">
+  <md-grid-tile
+    colspan="2"
+    rowspan="1"
+  >
+    <md-card>
+      <md-card-title>
+        Herd
+      </md-card-title>
+      <img md-card-md-image src="/assets/herd.png"/>
+      <md-card-actions>
+        <span>AUS</span>
+        <md-slide-toggle [(ngModel)]="userInput.isOutletOn" (change)="toggleOutlet()">
+        </md-slide-toggle>
+        <span>AN</span>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>

@@ -1,4 +1,4 @@
-import { RestService } from './../../shared/rest.service';
+import { RestService } from '../../shared/rest.service';
 import { Component, OnInit } from '@angular/core';
 
 const OUTLET_BORDER = 20;
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     isOutletOn: false
   }
 
-  constructor(private restService:RestService) {}
+  constructor(private restService: RestService) {}
 
   ngOnInit() {
    this.queryOutletState();
@@ -27,16 +27,16 @@ export class HomeComponent implements OnInit {
 
   private queryOutletState() {
     return this.restService
-      .getItem("Power")
-      .subscribe((data:any) => {
+      .getItem('Power')
+      .subscribe((data: any) => {
         this.systemInput.isOutletOn = data.state > OUTLET_BORDER;
         this.syncOutletStates();
       });
   }
 
   private toggleOutlet() {
-    let command = this.userInput.isOutletOn ? "ON" : "OFF";
-    this.restService.postCommandToItem("EdiSwitch", command).subscribe(data => console.log(data));
+    const command = this.userInput.isOutletOn ? 'ON' : 'OFF';
+    this.restService.postCommandToItem('EdiSwitch', command).subscribe(data => console.log(data));
     this.syncOutletStates();
   }
 
