@@ -10,7 +10,6 @@ import { SettingsComponent } from './settings/settings.component';
     CommonModule,
     MaterialModule,
     FormsModule
-
   ],
   declarations: [HomeComponent, SettingsComponent],
   exports: [HomeComponent]

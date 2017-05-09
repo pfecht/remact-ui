@@ -1,3 +1,4 @@
+import { RestService } from './../../shared/rest.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
+  minOutletDelay= 0;
+  maxOutletDelay= 320;
+  currentDelay = 0;
+  constructor(private restService:RestService) { }
 
-  constructor() { }
+  ngOnInit() {  
+    this.restService
+      .getItemState("OutletDelay")
+      .subscribe(state => {
+        this.currentDelay = state;
+      });
+  }
 
-  ngOnInit() {
+  delayChange() {
+    console.log(this.currentDelay);
+    this.restService.postCommandToItem("OutletDelay", this.currentDelay).subscribe(data => console.log(data));
   }
 
 }

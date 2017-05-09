@@ -1,3 +1,2 @@
-<p>
-  settings works!
-</p>
+Steckdosen-Verzögerung: <md-slider [min]="minOutletDelay" [max]="maxOutletDelay" [(ngModel)]="currentDelay" tickInterval="5" (change)="delayChange()"></md-slider>
+{{currentDelay}} Minuten
