@@ -7,10 +7,13 @@
   </md-sidenav>
 
   <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()" md-icon-button>
+<!--    <button class="app-icon-button" (click)="sidenav.toggle()" md-icon-button>
       <i class="material-icons app-toolbar-menu">menu</i>
+    </button>-->
+    <button class="app-icon-button" routerLink="/" md-icon-button>
+      <i class="material-icons app-toolbar-menu">home</i>
     </button>
-
+    
     {{title}}
 
     <span class="app-toolbar-filler"></span>

@@ -1,2 +1,21 @@
-Steckdosen-Verzögerung: <md-slider [min]="minOutletDelay" [max]="maxOutletDelay" [(ngModel)]="currentDelay" tickInterval="5" (change)="delayChange()"></md-slider>
-{{currentDelay}} Minuten
+<md-list>
+   <md-list-item>
+    <!--<md-icon md-list-icon>av timer</md-icon>-->
+    <h4 md-line>Steckdosen-Verzögerung</h4>
+    <md-slider [min]="minOutletDelay" [max]="maxOutletDelay" [(ngModel)]="userInput.outletDelay" tickInterval="15"></md-slider>
+    <p md-line>{{systemInput.outletDelay}} Minuten</p>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item>
+    <!--<md-icon md-list-icon>av timer</md-icon>-->
+    <h4 md-line>Uhrzeit</h4>
+    <p md-line>{{systemInput.timeBoundary}}</p>
+    <md-input-container class="example-full-width">
+      <input mdInput type="time" [(ngModel)]="userInput.timeBoundary">
+    </md-input-container>
+  </md-list-item>
+</md-list>
+
+<span class="app-action">
+  <button md-fab (click)="saveSettings()"><md-icon>check circle</md-icon></button>
+</span>

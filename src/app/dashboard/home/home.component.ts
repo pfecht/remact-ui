@@ -27,9 +27,9 @@ export class HomeComponent implements OnInit {
 
   private queryOutletState() {
     return this.restService
-      .getItem('Power')
-      .subscribe((data: any) => {
-        this.systemInput.isOutletOn = data.state > OUTLET_BORDER;
+      .getItemState('Power')
+      .subscribe((state: any) => {
+        this.systemInput.isOutletOn = state > OUTLET_BORDER;
         this.syncOutletStates();
       });
   }
