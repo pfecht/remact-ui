@@ -2,7 +2,7 @@
 UI for the RemAct smart home application.
 
 
-> Note: build the app (`ng build`) and deploy it to openhabian with 
+> Note: build the app (`npm run build:prod`) and deploy it to openhabian with 
 `rsync -az ./dist/ openhabian@openhabianpi:/etc/openhab2/html`
 
 ## Development server
