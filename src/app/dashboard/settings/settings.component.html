@@ -1,4 +1,5 @@
-<md-list *ngIf="userInput.OutletDelay">
+<md-spinner *ngIf="!loaded" class="settings-loader"></md-spinner>
+<md-list *ngIf="loaded">
    <md-list-item>
     <!--<md-icon md-list-icon>av timer</md-icon>-->
     <h4 md-line>Steckdosen-Verzögerung</h4>

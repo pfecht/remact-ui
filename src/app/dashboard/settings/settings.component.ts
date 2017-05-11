@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SettingsComponent implements OnInit {
   minOutletDelay= 0;
   maxOutletDelay= 320;
+  loaded = false;
 
   settingKeys = [
     "OutletDelay",
@@ -28,6 +29,7 @@ export class SettingsComponent implements OnInit {
         .subscribe(state => {
           this.systemInput[key] = state;
           this.userInput[key] = state;
+          this.loaded = true;
         });
     });
   }
