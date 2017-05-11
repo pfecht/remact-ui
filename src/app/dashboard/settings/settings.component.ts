@@ -15,8 +15,8 @@ export class SettingsComponent implements OnInit {
     "TimeBoundary"
   ];
 
-  userInput = {};
-  systemInput = {}
+  userInput:any = {};
+  systemInput:any = {}
 
   currentDelay = 0;
   constructor(private restService:RestService) { }
