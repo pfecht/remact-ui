@@ -24,3 +24,13 @@ md-toolbar-row {
   right: 20px;
   color: white;
 }
+
+.mat-list .mat-list-item .list-line-secondary,
+.mat-list .mat-list-item .mat-line.list-line-secondary:nth-child(n+2) {
+  color: rgb(125,125,125);
+  font-size: 12px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
