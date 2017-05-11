@@ -10,38 +10,45 @@ export class SettingsComponent implements OnInit {
   minOutletDelay= 0;
   maxOutletDelay= 320;
 
-  userInput = {
-    outletDelay: 0,
-    timeBoundary : "20:00" // TODO auf "" setzen
-  };
+  settingKeys = [
+    "OutletDelay",
+    "TimeBoundary"
+  ];
 
-  systemInput = {
-    outletDelay: 0,
-    timeBoundary : "20:00" //TODO auf "" setzen
-  }
+  userInput = {};
+  systemInput = {}
 
   currentDelay = 0;
   constructor(private restService:RestService) { }
 
   ngOnInit() {  
-    this.restService
-      .getItemState("OutletDelay")
-      .subscribe(state => {
-        this.systemInput.outletDelay = state;
-        this.userInput.outletDelay = state;
-      });
-    
-    this.restService
-      .getItemState("TimeBoundary")
-      .subscribe(state => {
-        this.systemInput.outletDelay = state;
-        this.userInput.outletDelay = state;
-      })
+    this.settingKeys.forEach(key => {
+      this.restService
+        .getItemState(key)
+        .subscribe(state => {
+          this.systemInput[key] = state;
+          this.userInput[key] = state;
+        });
+    });
   }
 
   saveSettings() {
-    this.restService.postCommandToItem("OutletDelay", this.userInput.outletDelay).subscribe(data => console.log(data));
-    this.restService.postCommandToItem("TimeBoundary", this.userInput.timeBoundary).subscribe(data => console.log(data));
+    this.settingKeys.forEach(key => {
+      if(this.valueDiffers(key)) {
+        this.restService
+          .postCommandToItem(key, this.userInput[key])
+          .subscribe(data => console.log(data));
+        this.systemInput[key] = this.userInput[key];
+      } 
+    });
   }
 
-}
+  private valueDiffers(key:string) {
+    return this.systemInput[key] !== this.userInput[key];
+  }
+
+  private saveValue(key:string, value:any) {
+    this.restService.postCommandToItem(key, value).subscribe(data => console.log(data)); 
+  }
+
+} 

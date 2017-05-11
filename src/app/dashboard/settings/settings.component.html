@@ -1,17 +1,17 @@
-<md-list>
+<md-list *ngIf="userInput.OutletDelay">
    <md-list-item>
     <!--<md-icon md-list-icon>av timer</md-icon>-->
     <h4 md-line>Steckdosen-Verzögerung</h4>
-    <md-slider [min]="minOutletDelay" [max]="maxOutletDelay" [(ngModel)]="userInput.outletDelay" tickInterval="15"></md-slider>
-    <p md-line>{{systemInput.outletDelay}} Minuten</p>
+    <md-slider [min]="minOutletDelay" [max]="maxOutletDelay" [(ngModel)]="userInput.OutletDelay" tickInterval="15"></md-slider>
+    <p md-line>{{systemInput.OutletDelay}} Minuten</p>
   </md-list-item>
   <md-divider></md-divider>
   <md-list-item>
     <!--<md-icon md-list-icon>av timer</md-icon>-->
     <h4 md-line>Uhrzeit</h4>
-    <p md-line>{{systemInput.timeBoundary}}</p>
+    <p md-line>{{systemInput.TimeBoundary}}</p>
     <md-input-container class="example-full-width">
-      <input mdInput type="time" [(ngModel)]="userInput.timeBoundary">
+      <input mdInput type="time" [(ngModel)]="userInput.TimeBoundary">
     </md-input-container>
   </md-list-item>
 </md-list>
