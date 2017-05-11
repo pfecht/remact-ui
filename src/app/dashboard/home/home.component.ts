@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   private queryOutletState() {
     return this.restService
-      .getItemState('Power')
+      .getItemState('Edimax_Power')
       .subscribe((state: any) => {
         this.systemInput.isOutletOn = state > OUTLET_BORDER;
         this.syncOutletStates();
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   public toggleOutlet() {
     const command = this.userInput.isOutletOn ? 'ON' : 'OFF';
-    this.restService.postCommandToItem('EdiSwitch', command).subscribe(data => console.log(data));
+    this.restService.postCommandToItem('Edimax_Switch', command).subscribe(data => console.log(data));
     this.syncOutletStates();
   }
 
