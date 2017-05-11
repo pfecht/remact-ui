@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  private toggleOutlet() {
+  public toggleOutlet() {
     const command = this.userInput.isOutletOn ? 'ON' : 'OFF';
     this.restService.postCommandToItem('EdiSwitch', command).subscribe(data => console.log(data));
     this.syncOutletStates();
