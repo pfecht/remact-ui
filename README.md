@@ -1,6 +1,9 @@
 # RemactUi
+UI for the RemAct smart home application.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+> Note: build the app (`ng build`) and deploy it to openhabian with 
+`rsync -az ./dist/ openhabian@openhabianpi:/etc/openhab2/html`
 
 ## Development server
 
