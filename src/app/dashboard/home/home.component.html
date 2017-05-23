@@ -1,15 +1,29 @@
-<md-grid-list cols="3" rowHeight="300px">
+<md-grid-list cols="2" rowHeight="300px">
   <md-grid-tile colspan="1"rowspan="1">
     <md-card>
       <md-card-title>Herd</md-card-title>
       <md-card-content>
-        <img md-card-md-image src="assets/herd.png"/>
+        <img md-card-md-image src="assets/herd-{{userInput.isOutletOn ? 'an' : 'aus'}}.svg"/>
       </md-card-content>
       <md-card-actions>
         <span>AUS</span>
         <md-slide-toggle [(ngModel)]="userInput.isOutletOn" (change)="toggleOutlet()">
         </md-slide-toggle>
         <span>AN</span>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+    <md-grid-tile colspan="1"rowspan="1">
+    <md-card>
+      <md-card-title>Tür</md-card-title>
+      <md-card-content>
+        <img md-card-md-image src="assets/tuer-{{userInput.isDoorUnlocked ? 'auf' : 'zu'}}.svg"/>
+      </md-card-content>
+      <md-card-actions>
+        <span>ZU</span>
+        <md-slide-toggle [(ngModel)]="userInput.isDoorUnlocked" (change)="toggleDoor()">
+        </md-slide-toggle>
+        <span>AUF</span>
       </md-card-actions>
     </md-card>
   </md-grid-tile>
