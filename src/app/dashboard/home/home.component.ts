@@ -10,10 +10,12 @@ const OUTLET_BORDER = 20;
 })
 export class HomeComponent implements OnInit {
   userInput = {
-    isOutletOn: false
+    isOutletOn: false,
+    isDoorUnlocked: false
   };
   systemInput = {
-    isOutletOn: false
+    isOutletOn: false,
+    isDoorUnlocked: false
   }
 
   constructor(private restService: RestService) {}
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit {
    this.queryOutletState();
    window.setInterval(() => {
       this.queryOutletState();
+      this.queryDoorState();
     }, 2000);
   }
 
@@ -36,11 +39,36 @@ export class HomeComponent implements OnInit {
 
   public toggleOutlet() {
     const command = this.userInput.isOutletOn ? 'ON' : 'OFF';
-    this.restService.postCommandToItem('Edimax_Switch', command).subscribe(data => console.log(data));
+    this.restService.postCommandToItem('Edimax_Switch', command).subscribe(this.subscribePostCommand);
     this.syncOutletStates();
   }
 
   private syncOutletStates() {
     this.userInput.isOutletOn =  this.userInput.isOutletOn || this.systemInput.isOutletOn;
   }
+
+
+  private queryDoorState() {
+    return this.restService
+    .getItemState('Door_Unlocked')
+    .subscribe((state: any) => {
+      this.systemInput.isDoorUnlocked = state == "ON";
+      this.syncDoorStates();
+    });
+  } 
+
+  public toggleDoor() {
+    const command = this.userInput.isDoorUnlocked ? 'ON' : 'OFF';
+    this.restService.postCommandToItem('Door_Unlocked', command).subscribe(this.subscribePostCommand);
+    this.syncOutletStates();
+  }
+
+  private syncDoorStates() {
+    this.userInput.isDoorUnlocked =  this.userInput.isDoorUnlocked || this.systemInput.isDoorUnlocked;
+  }
+
+  private subscribePostCommand(response: any) {
+   // console.log(response);
+  }
+
 }
