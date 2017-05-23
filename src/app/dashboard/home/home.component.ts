@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
 
   public toggleOutlet() {
     const command = this.userInput.isOutletOn ? 'ON' : 'OFF';
-    this.restService.postCommandToItem('Edimax_Switch', command);
+    this.restService.postCommandToItem('Edimax_Switch', command).subscribe(this.subscribePostCommand);
     this.syncOutletStates();
   }
 
@@ -59,11 +59,16 @@ export class HomeComponent implements OnInit {
 
   public toggleDoor() {
     const command = this.userInput.isDoorUnlocked ? 'ON' : 'OFF';
-    this.restService.postCommandToItem('Door_Unlocked', command);
+    this.restService.postCommandToItem('Door_Unlocked', command).subscribe(this.subscribePostCommand);
     this.syncOutletStates();
   }
 
   private syncDoorStates() {
     this.userInput.isDoorUnlocked =  this.userInput.isDoorUnlocked || this.systemInput.isDoorUnlocked;
   }
+
+  private subscribePostCommand(response: any) {
+   // console.log(response);
+  }
+
 }
