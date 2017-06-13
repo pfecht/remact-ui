@@ -11,8 +11,8 @@ export class AppComponent implements OnInit {
   title = 'RemAct UI';
  
   userSettingsClasses = {
-    "primary-color-green": false,
-    "primary-color-red": false,
+    "toolbar-color-green": false,
+    "toolbar-color-red": false,
     "font-size-small" : false,
     "font-size-large" : false,
     "night-mode": false,
