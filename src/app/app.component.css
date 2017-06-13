@@ -1,0 +1,20 @@
+.primary-color-green md-toolbar {
+  background:green !important;
+}
+.primary-color-red md-toolbar {
+  background:red;
+}
+.font-size-large * {
+  font-size: 1.1em;
+}
+.font-size-small * {
+  font-size: 0.9em;
+}
+
+.strong-contrast {
+   
+}
+
+.night-mode {
+  
+}
