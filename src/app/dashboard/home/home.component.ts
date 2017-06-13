@@ -16,7 +16,14 @@ export class HomeComponent implements OnInit {
   systemInput = {
     isOutletOn: false,
     isDoorUnlocked: false
-  }
+  };
+
+  cardTiles = [
+    {title: 'Herd', cols: 1, rows: 1},
+    {title: 'Tür', cols: 1, rows: 1},
+    {title: 'Fenster', cols: 1, rows: 1},
+    {title: 'Fenster', cols: 1, rows: 1}
+  ];
 
   constructor(private restService: RestService) {}
 
@@ -52,10 +59,10 @@ export class HomeComponent implements OnInit {
     return this.restService
     .getItemState('Door_Unlocked')
     .subscribe((state: any) => {
-      this.systemInput.isDoorUnlocked = state == "ON";
+      this.systemInput.isDoorUnlocked = state === 'ON';
       this.syncDoorStates();
     });
-  } 
+  }
 
   public toggleDoor() {
     const command = this.userInput.isDoorUnlocked ? 'ON' : 'OFF';
