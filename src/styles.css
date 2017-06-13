@@ -109,4 +109,11 @@ md-toolbar-row {
 
 
 
+.strong-contrast .app-content p ,
+.strong-contrast .app-content h1,
+.strong-contrast .app-content h2,
+.strong-contrast .app-content h3,
+.strong-contrast .app-content h4,
+.strong-contrast .app-content .mat-select-trigger span{
+  color: rgb(0, 0, 0) !important;
 }
