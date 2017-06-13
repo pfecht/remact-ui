@@ -50,3 +50,12 @@ md-toolbar-row {
 .time-select:nth-of-type(2){
   margin-left: 5px;
 }
+
+
+
+.remact-card .mat-slide-toggle-bar{
+  background-color: rgba(56, 142, 60, 1);
+}
+.remact-card .mat-slide-toggle-thumb {
+  background-color: rgba(0, 80, 5, 1);
+}
