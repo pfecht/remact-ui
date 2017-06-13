@@ -58,4 +58,7 @@ md-toolbar-row {
 }
 .remact-card .mat-slide-toggle-thumb {
   background-color: rgba(0, 80, 5, 1);
+.remact-card .mat-card-md-image{
+  width: 90px;
+}
 }
