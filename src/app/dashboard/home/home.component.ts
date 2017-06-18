@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   cardTiles = [
     {title: 'Herd', cols: 1, rows: 1},
     {title: 'Tür', cols: 1, rows: 1},
-    {title: 'Fenster', cols: 1, rows: 1},
-    {title: 'Fenster', cols: 1, rows: 1}
+    {title: 'Fenster 1', cols: 1, rows: 1},
+    {title: 'Fenster 2', cols: 1, rows: 1}
   ];
 
   constructor(private restService: RestService) {}
