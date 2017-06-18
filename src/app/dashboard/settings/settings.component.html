@@ -5,14 +5,14 @@
         <md-icon md-list-icon>access_time</md-icon>
         <h4 md-line>Uhrzeit</h4>
         <p md-line class="list-line-secondary">Zeitpunkt, nach dem RemAct Ihre Geräte automatisch ausschalten soll.</p>
-        <p md-line class="list-line-secondary">Aktuell: {{systemInput.Config_TimeBoundaryHour}}:{{systemInput.Config_TimeBoundaryMinute}} Uhr</p>
+        <p md-line class="list-line-secondary">Aktuell: von {{systemInput.Config_TimeBoundaryHourBegin}} - {{systemInput.Config_TimeBoundaryHourEnd}} Uhr</p>
 
-        <md-select placeholder="Stunde" [(ngModel)]="userInput.Config_TimeBoundaryHour" class="time-select">
+        <md-select placeholder="von" [(ngModel)]="userInput.Config_TimeBoundaryHourBegin" class="time-select">
             <md-option *ngFor="let hour of hours" [value]="hour">{{ hour }}</md-option>
         </md-select>
-        <span> : </span>
-        <md-select placeholder="Minute" [(ngModel)]="userInput.Config_TimeBoundaryMinute" class="time-select">
-            <md-option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</md-option>
+        <span> - </span>
+        <md-select placeholder="bis" [(ngModel)]="userInput.Config_TimeBoundaryHourEnd" class="time-select">
+            <md-option *ngFor="let hour of hours" [value]="hour">{{ hour }}</md-option>
         </md-select>
     </md-list-item>
    <md-list-item>

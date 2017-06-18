@@ -13,8 +13,8 @@ export class SettingsComponent implements OnInit {
 
   settingKeys = [
     "Config_OutletDelay",
-    "Config_TimeBoundaryHour",
-    "Config_TimeBoundaryMinute"
+    "Config_TimeBoundaryHourBegin",
+    "Config_TimeBoundaryHourEnd"
   ];
 
   userInput:any = {};
@@ -32,6 +32,10 @@ export class SettingsComponent implements OnInit {
       this.restService
         .getItemState(key)
         .subscribe(state => {
+          // Check for adding zero to hours
+          if(key.indexOf("TimeBoundaryHour") !== -1 && state.length == 1) {
+            state = "0" + state.toString();
+          }
           this.systemInput[key] = state;
           this.userInput[key] = state;
           this.loaded = true;
