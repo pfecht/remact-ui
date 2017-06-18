@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
   private loadUserSettings() {
       this.openape
-      .getPreferences("Luise")
+      .getPreferences("Ingobert")
       .subscribe((preferences:any) => {
         for(let i in preferences) {
           this.userSettingsClasses[i] = (preferences[i] == 'true');
