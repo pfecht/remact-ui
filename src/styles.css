@@ -18,10 +18,10 @@ md-toolbar-row {
   justify-content: space-between;
 }
 .mat-toolbar-row span{
-  font-size: 125% !important;
+  font-size: 100% !important;
 }
 .mat-toolbar-row button, .mat-toolbar-row a.mat-icon-button{
-  font-size: 115% !important;
+  font-size: 100% !important;
 }
 
 .done {
